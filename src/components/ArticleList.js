@@ -1,16 +1,23 @@
-import React from 'react'
-import Article from './Article'
+import React, { Component } from 'react';
+import Article from './Article';
+import CommentsList from './CommentsList';
 
-export default function ArticleList(props) {
-    const { articles } = props
-    const articleElements = articles.map(article => <li key = {article.id}><Article article = {article} /></li>)
-    return (
-        <div>
-            <h2>Article List</h2>
+export default class Articlelist extends Component{
+    render() {
+        const { articles } = this.props;
+
+        const articleElements = articles.map(
+            (article) => {
+                if(!article.comments) return <li key = { article.id } ><Article article = { article }/></li>;
+
+                return <li key = { article.id } ><Article article = { article }/><CommentsList comments = { article.comments }/></li>;
+            }
+        );
+
+        return (
             <ul>
-                {/*some comment*/}
-                {articleElements}
+                { articleElements }
             </ul>
-        </div>
-    )
+        )
+    }
 }

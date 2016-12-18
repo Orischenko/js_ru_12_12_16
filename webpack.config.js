@@ -1,15 +1,18 @@
-var path = require('path')
+var path = require('path');
 
 module.exports = {
     devtool: 'source-map',
+
     entry: [
         './src/app.js'
     ],
+
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'bundle.js',
         publicPath: '/static/'
     },
+
     module: {
         loaders: [
             {
@@ -19,4 +22,4 @@ module.exports = {
             }
         ]
     }
-}
+};
