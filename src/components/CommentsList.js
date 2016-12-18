@@ -24,7 +24,7 @@ export default class TestimonialsList extends Component {
         this.setState({
             isOpen: !this.state.isOpen
         });
-
+        //Это очень плохо, никогда не лезь в реальный DOM руками. твоя задача описать этот текст в render()
         (this.state.isOpen) ? event.target.innerHTML = 'Open Comment' : event.target.innerHTML = 'Close Comment';
     };
 
