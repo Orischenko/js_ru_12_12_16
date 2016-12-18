@@ -9,7 +9,7 @@ export default class Articlelist extends Component{
         const articleElements = articles.map(
             (article) => {
                 if(!article.comments) return <li key = { article.id } ><Article article = { article }/></li>;
-
+                //логичнее CommentList внутри Article использовать
                 return <li key = { article.id } ><Article article = { article }/><CommentsList comments = { article.comments }/></li>;
             }
         );
