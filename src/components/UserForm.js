@@ -6,26 +6,36 @@ export default class UserForm extends Component{
     };
 
     state = {
-        username: ''
+        username: '',
+        usermessage: ''
     };
 
     render() {
 
         return (
             <div>
-                <p>Input text:</p>
-                <input type="text" value = { this.state.username } onInput = { this.handleChange }/>
+                <input type="text" value = { this.state.username } onInput = { this.handleChangeName } placeholder="Enter Name" />
+                <textarea type="text" value = { this.state.usermessage } onInput = { this.handleChangeMessage } placeholder="Enter Message" />
+                <button onClick={this.getInputValue}>Submit</button>
             </div>
         );
     }
 
-    handleChange = (event) => {
-        if(this.state.username.length > 10) return;
+    handleChangeName = (event) => {
+        if (event.target.value.length > 10) return;
 
         this.setState({
             username: event.target.value
         });
+    };
 
-        console.log( '---', 'input value:', event.target.value );
-    }
+    handleChangeMessage = (event) => {
+        this.setState({
+            usermessage: event.target.value
+        });
+    };
+
+    getInputValue = () => {
+        console.log( this.state.username + ' ' + this.state.usermessage );
+    };
 }

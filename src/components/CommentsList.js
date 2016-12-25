@@ -18,8 +18,6 @@ class CommentsList extends Component {
                 { this.getLink() }
 
                 { this.getComments() }
-
-                <UserForm />
             </ul>
         )
     }
@@ -44,7 +42,10 @@ class CommentsList extends Component {
         );
 
         return (
-            <div>{ commentElements }</div>
+            <div>
+                { commentElements }
+                <UserForm />
+            </div>
         );
     }
 }
