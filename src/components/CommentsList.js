@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import Comment from './Comment';
 import toggleOpen from './../decorators/toggleOpen';
+//Почему UserForm? Это две отдельных формы
 import UserForm from './UserForm';
 
 class CommentsList extends Component {
